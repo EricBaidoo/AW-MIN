@@ -1,0 +1,81 @@
+CREATE TABLE events (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            date TEXT NOT NULL,
+            time TEXT,
+            location TEXT,
+            description TEXT,
+            recurring INTEGER DEFAULT 0,
+            image TEXT
+        )
+
+CREATE TABLE sqlite_sequence(name,seq)
+
+CREATE TABLE sermons (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            speaker TEXT,
+            date TEXT NOT NULL,
+            description TEXT,
+            thumbnail TEXT,
+            videoUrl TEXT,
+            tags TEXT
+        )
+
+CREATE TABLE groups (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            slug TEXT UNIQUE NOT NULL,
+            name TEXT NOT NULL,
+            category TEXT,
+            type TEXT,
+            leader TEXT,
+            day TEXT,
+            time TEXT,
+            location TEXT,
+            image TEXT,
+            description TEXT
+        )
+
+CREATE TABLE testimonials (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            quote TEXT NOT NULL,
+            name TEXT NOT NULL,
+            role TEXT
+        )
+
+CREATE TABLE hero_slides (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title_small TEXT,
+    title_main TEXT NOT NULL,
+    button_1_text TEXT,
+    button_1_link TEXT,
+    button_2_text TEXT,
+    button_2_link TEXT,
+    background_media TEXT,
+    order_index INTEGER DEFAULT 0
+)
+
+CREATE TABLE gallery_images (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    image_url TEXT NOT NULL,
+    caption TEXT,
+    order_index INTEGER DEFAULT 0
+)
+
+CREATE TABLE form_submissions (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    form_type TEXT NOT NULL,
+    first_name TEXT,
+    last_name TEXT,
+    email TEXT,
+    phone TEXT,
+    message TEXT,
+    extra_data TEXT,
+    submitted_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE TABLE rate_limits (
+    ip_address TEXT PRIMARY KEY,
+    last_submitted_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+

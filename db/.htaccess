@@ -1,0 +1,6 @@
+# Secure the database directory
+Require all denied
+<Files "*">
+    Order Allow,Deny
+    Deny from all
+</Files>
